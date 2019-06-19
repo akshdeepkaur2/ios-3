@@ -14,8 +14,7 @@ class GameScene: SKScene {
     var nextLevelButton:SKLabelNode!
     
     let player = SKSpriteNode(imageNamed: "frame1")
-    let ground = SKSpriteNode(imageNamed: "ground")
-  
+    
     var xd:CGFloat = 0
     var yd:CGFloat = 0
 
@@ -27,7 +26,7 @@ class GameScene: SKScene {
         player.position  = CGPoint(x: 100, y: 1200)
         
         addChild(player)
-        addChild(ground)
+       
     }
     func makeground(xPosition:CGFloat, yPosition:CGFloat, throwX:CGFloat, throwY:CGFloat) {
         
