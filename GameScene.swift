@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
     
     var nextLevelButton:SKLabelNode!
+    var ground:SKNode?
     let player = SKSpriteNode(imageNamed: "frame1")
     var xd:CGFloat = 0
     var yd:CGFloat = 0
@@ -19,6 +20,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         print("This is level 1")
         self.nextLevelButton = self.childNode(withName: "nextLevelButton") as! SKLabelNode
+        self.ground = self.childNode(withName: "ground")
         player.position  = CGPoint(x: 100, y: 1200)
         
         addChild(player)
