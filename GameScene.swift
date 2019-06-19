@@ -12,32 +12,36 @@ import GameplayKit
 class GameScene: SKScene {
     
     var nextLevelButton:SKLabelNode!
-    class GameScene: SKScene {
-        
-            // make "outlets" for your sprites
-            // outlets = variables to represent your sprites
-            var lemming:SKNode?
-        
-        
-        override func didMove(to view: SKView) {
-            
-            
-                            // intialize your sprite variables
-                                self.lemming = self.childNode(withName: "lemming")
-            
-        }
-        
-    }
+    let player = SKSpriteNode(imageNamed: "frame1")
     
     override func didMove(to view: SKView) {
         print("This is level 1")
-        self.nextLevelButton = self.childNode(withName: "nextLevelButton") as? SKLabelNode
+        self.nextLevelButton = self.childNode(withName: "nextLevelButton") as! SKLabelNode
+        player.position  = CGPoint(x: 400, y: 300)
+        
+        addChild(player)
     }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        self.player.position.x = self.player.position.x + self.xd * 10
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (self.player.position.x <= 50) {
+            // left of screen
+            self.xd = self.xd * -1
+        }
+        else if (self.player.position.x >= self.size.width-100) {
+            // right of screen
+            self.xd = self.xd * -1
+        }
+        else if (self.player.position.y <= 50) {
+            // botttom of screen
+            self.yd = self.yd * -1
+        }
+        else if (self.player.position.y >= self.size.height-100)  {
+            // top of screen
+            self.yd = self.yd * -1
+        }
         let touch = touches.first
         if (touch == nil) {
             return
