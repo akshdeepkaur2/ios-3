@@ -12,7 +12,22 @@ import GameplayKit
 class GameScene: SKScene {
     
     var nextLevelButton:SKLabelNode!
-    
+    class GameScene: SKScene {
+        
+            // make "outlets" for your sprites
+            // outlets = variables to represent your sprites
+            var lemming:SKNode?
+        
+        
+        override func didMove(to view: SKView) {
+            
+            
+                            // intialize your sprite variables
+                                self.lemming = self.childNode(withName: "lemming")
+            
+        }
+        
+    }
     
     override func didMove(to view: SKView) {
         print("This is level 1")
