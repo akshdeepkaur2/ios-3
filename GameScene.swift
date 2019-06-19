@@ -14,7 +14,7 @@ class GameScene: SKScene {
     var nextLevelButton:SKLabelNode!
     
     let player = SKSpriteNode(imageNamed: "frame1")
-    
+    let bottom = SKSpriteNode(imageNamed: "bottom")
     var xd:CGFloat = 0
     var yd:CGFloat = 0
 
@@ -22,7 +22,7 @@ class GameScene: SKScene {
         print("This is level 1")
         self.nextLevelButton = self.childNode(withName: "nextLevelButton") as! SKLabelNode
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
-
+        
         player.position  = CGPoint(x: 100, y: 1200)
         
         addChild(player)
@@ -99,6 +99,9 @@ class GameScene: SKScene {
                 view?.presentScene(scene!)
             }
         }
+        if (player.intersects(bottom) == true) {
+            print("player losses")
         
     }
+}
 }
