@@ -22,7 +22,8 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         print("This is level 1")
         self.nextLevelButton = self.childNode(withName: "nextLevelButton") as! SKLabelNode
-        
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+
         player.position  = CGPoint(x: 100, y: 1200)
         
         addChild(player)
@@ -30,33 +31,28 @@ class GameScene: SKScene {
     }
     func makeground(xPosition:CGFloat, yPosition:CGFloat, throwX:CGFloat, throwY:CGFloat) {
         
-        // 1. create an orange sprite
+        // 1. create an ground sprite
         let ground = SKSpriteNode(imageNamed: "ground")
         
-        // 2. set initial position of orange to be same
+        // 2. set initial position of ground to be same
         // as where mouse is clicked
         ground.position.x = xPosition;
        ground.position.y = yPosition;
         
-        // force orange to appear in foreground
+        // force ground to appear in foreground
         ground.zPosition = 99;
         
         
-        // 3. set physics for the orange
+        // 3. set physics for the ground
         // -- dyanmic = true
         // -- gravity = true
         // Both are true by default
         ground.physicsBody = SKPhysicsBody(circleOfRadius: ground.size.width/2)
         
         
-        // 4. Add the orange to the scene
+        // 4. Add the ground to the scene
         addChild(ground)
         
-        
-        let throwground = SKAction.applyImpulse(
-            CGVector(dx:throwX, dy:throwY),
-            duration: 0.5)
-        ground.run(throwground)
         
         
     }
