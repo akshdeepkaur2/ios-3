@@ -86,7 +86,9 @@ class GameScene: SKScene {
         
         
         
-        
+        if (player.intersects(bottom) == true) {
+            print("player losses")
+        }
         // MARK: Switch Levels
         if (node.name == "nextLevelButton") {
             let scene = SKScene(fileNamed:"Level2")
@@ -99,9 +101,7 @@ class GameScene: SKScene {
                 view?.presentScene(scene!)
             }
         }
-        if (player.intersects(bottom) == true) {
-            print("player losses")
         
-    }
+        
 }
 }
