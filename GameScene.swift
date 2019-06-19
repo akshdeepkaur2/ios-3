@@ -19,7 +19,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         print("This is level 1")
         self.nextLevelButton = self.childNode(withName: "nextLevelButton") as! SKLabelNode
-        player.position  = CGPoint(x: 400, y: 300)
+        player.position  = CGPoint(x: 100, y: 1200)
         
         addChild(player)
     }
